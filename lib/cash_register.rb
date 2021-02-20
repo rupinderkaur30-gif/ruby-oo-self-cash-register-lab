@@ -1,17 +1,19 @@
-  
+  require "pry" 
 
  class CashRegister
     attr_accessor :total, :discount , :item , :last_transaction
     def initialize(discount= 0)
         @total = 0
         @discount = discount
-        @item = item
-      @last_transaction
+        @item = []
+      @last_transaction = 0
      end
      def add_item(  title, price , quantity=1)
-
+     quantity.times do 
+      @item << title
+     end
     self.total += price* quantity
-   
+   @last_transaction = price * quantity
       end
    
       def apply_discount
@@ -24,21 +26,19 @@
            end
       end
       def items
-      @item = ["eggs", "tomato", "tomato", "tomato"]
-          self.item
+     
             return self.item
          
       end
       def void_last_transaction
-      if self.item = 0.0
-         self.total = 0.0
-      else
-         self.total -= self.last_transaction
+   
+       self.total -= self.last_transaction
+       
       end
 
       
       
-   end
+   
 end
 
 
